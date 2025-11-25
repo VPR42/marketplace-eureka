@@ -5,5 +5,13 @@ spring:
   application:
     name: marketplace-eureka
 
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+  dashboard:
+    enabled: true
+    path: ui
+
 server:
   port: 33307

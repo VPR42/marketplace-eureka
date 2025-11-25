@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.withType
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
@@ -26,19 +25,22 @@ repositories {
 
 dependencies {
     // Spring
-    implementation("org.springframework.boot:spring-boot-starter") // Удалить при добавлении хоть какой-то либы ибо они уже будут содержать этот стартер как родительский
+    implementation("org.springframework.boot:spring-boot-starter")
+
+    // Kotlin
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    // Eureka
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
 
     // Detekt
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-rules-ruleauthors:$detektVersion")
 
-    // Swagger
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
-    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
-
     // Logging
     runtimeOnly("io.github.oshai:kotlin-logging-jvm:7.0.7")
     implementation("org.springframework.boot:spring-boot-starter-log4j2")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 }
 
