@@ -1,18 +1,18 @@
 services:
-  module-name:
+  marketplace-eureka:
     build:
       dockerfile: ./Dockerfile
       context: ./
     restart: always
-    image: module-name
-    container_name: module-name
+    image: marketplace-eureka
+    container_name: marketplace-eureka
     volumes:
-      - /home/kinoko/logs/module-name:/logs
+      - /home/kinoko/logs/marketplace-eureka:/logs
     #      - ./logs:/logs                             # Для отладки на windows машине
     networks:
       - backend
     ports:
-      - "33300:33300"
+      - "33307:33307"
 
 networks:
   backend:
